@@ -1,0 +1,14 @@
+def wrapper(f):
+    def fun(l):
+        # 1. Standardize each number to the last 10 digits
+        standardized_numbers = []
+        for num in l:
+            # Slicing [-10:] handles prefixes like 0, 91, +91, or none
+            clean_num = num[-10:]
+            # 2. Apply the specific output format
+            formatted = f"+91 {clean_num[:5]} {clean_num[5:]}"
+            standardized_numbers.append(formatted)
+        
+        # 3. Pass the formatted list to the original sorting function
+        return f(standardized_numbers)
+    return fun
