@@ -1,0 +1,11 @@
+import numpy
+
+# Set the precision for printing if needed, though round() is used for the final output
+n = int(input())
+matrix = [list(map(float, input().split())) for _ in range(n)]
+
+# Calculate the determinant
+determinant = numpy.linalg.det(matrix)
+
+# Print the result rounded to 2 decimal places
+print(round(determinant, 2))
