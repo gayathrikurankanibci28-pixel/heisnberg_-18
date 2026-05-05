@@ -1,0 +1,12 @@
+import re
+
+def fun(s):
+    # Regex breakdown:
+    # ^[a-zA-Z0-9_-]+ : Username allows letters, digits, underscores, and dashes
+    # @              : Must have @
+    # [a-zA-Z0-9]+   : Website allows only letters and digits
+    # \.             : Must have a dot
+    # [a-zA-Z]{1,3}$ : Extension is letters only, max length 3
+    pattern = r'^[a-zA-Z0-9_-]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}$'
+    return re.match(pattern, s) is not None
+
