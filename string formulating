@@ -1,0 +1,13 @@
+def print_formatted(number):
+    # Calculate the width of the binary representation of 'number'
+    width = len(bin(number)) - 2
+
+    for i in range(1, number + 1):
+        # Generate formatted strings for Decimal, Octal, Hex, and Binary
+        d = str(i)
+        o = oct(i)[2:]
+        h = hex(i)[2:].upper()
+        b = bin(i)[2:]
+
+        # Use rjust to right-align each value based on the binary width
+        print(f"{d.rjust(width)} {o.rjust(width)} {h.rjust(width)} {b.rjust(width)}")
