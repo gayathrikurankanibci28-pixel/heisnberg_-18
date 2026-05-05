@@ -1,0 +1,7 @@
+def print_full_name(first, last):
+    # Use an f-string to inject the variables into the message
+    print(f"Hello {first} {last}! You just delved into python.")
+
+
+
+
