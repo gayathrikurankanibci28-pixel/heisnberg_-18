@@ -1,0 +1,21 @@
+import re
+
+# Read dimensions
+n, m = map(int, input().split())
+
+# Read the matrix rows
+matrix = [input() for _ in range(n)]
+
+# Step 1: Decode the script by reading column-wise
+# We zip the rows to get columns, then join everything into one string
+decoded_string = "".join(["".join(column) for column in zip(*matrix)])
+
+# Step 2: Replace symbols/spaces between alphanumeric characters
+# \w matches [a-zA-Z0-9_]. Since the problem specifies [a-zA-Z0-9], 
+# we use [a-zA-Z0-9] or \w with the ASCII flag.
+# The pattern finds non-alphanumeric characters [^\w] that have
+# an alphanumeric character before (?<=\w) and after (?=\w) them.
+final_output = re.sub(r'(?<=\w)([^\w]+)(?=\w)', ' ', decoded_string)
+
+print(final_output)
+
